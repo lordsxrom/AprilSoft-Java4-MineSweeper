@@ -17,7 +17,7 @@ public class Utils {
     }
 
     public static Coord getRandomCoord() {
-        return new Coord(random.nextInt(COLS - 1), random.nextInt(ROWS - 1));
+        return new Coord(random.nextInt(COLS), random.nextInt(ROWS));
     }
 
     public static ArrayList<Coord> getCoordsAround(Coord coord) {
