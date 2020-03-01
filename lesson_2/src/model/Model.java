@@ -93,9 +93,9 @@ public class Model implements IModel {
             Coord coord = entry.getKey();
             Box flagBox = entry.getValue();
 
-                g.drawImage((Image) flagBox.image,
-                        coord.x * Utils.IMAGE_SIZE, coord.y * Utils.IMAGE_SIZE,
-                        Utils.IMAGE_SIZE, Utils.IMAGE_SIZE, null);
+            g.drawImage((Image) flagBox.image,
+                    coord.x * Utils.IMAGE_SIZE, coord.y * Utils.IMAGE_SIZE,
+                    Utils.IMAGE_SIZE, Utils.IMAGE_SIZE, null);
         }
 
         return img;

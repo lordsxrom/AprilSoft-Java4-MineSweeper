@@ -1,10 +1,6 @@
 package model.sweeper;
 
 import model.enums.Box;
-import utils.Coord;
-import utils.Utils;
-
-import java.util.Map;
 
 public class Flags {
 
@@ -17,4 +13,5 @@ public class Flags {
     public Matrix getFlagMap() {
         return flagMap;
     }
+
 }
