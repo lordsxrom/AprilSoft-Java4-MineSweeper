@@ -46,7 +46,7 @@ public class Presenter implements IPresenter, ViewListener, ModelListener {
 
     @Override
     public void updateRemainingBomb(int bombs) {
-
+        view.updateCounter(bombs);
     }
 
     @Override

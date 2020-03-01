@@ -117,7 +117,7 @@ public class View implements IView {
 
     @Override
     public void updateCounter(int flags) {
-
+        flagsLabel.setText(String.valueOf(flags));
     }
 
     @Override
