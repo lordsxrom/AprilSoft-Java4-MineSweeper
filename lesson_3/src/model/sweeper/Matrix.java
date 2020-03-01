@@ -33,4 +33,5 @@ public class Matrix {
     public HashMap<Coord, Box> getMap() {
         return map;
     }
+
 }

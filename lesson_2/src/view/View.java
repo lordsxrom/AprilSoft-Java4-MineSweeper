@@ -15,7 +15,8 @@ public class View implements IView {
 
     private ViewListener listener;
 
-    private JPanel mainPanel;
+    private JPanel mainPanel, topPanel;
+    private JLabel flagsLabel, timeLabel;
 
     private BufferedImage map;
 
@@ -26,7 +27,37 @@ public class View implements IView {
     }
 
     private void initDisplay() {
+        topPanel = new JPanel();
+        topPanel.setLayout(new BorderLayout());
 
+        Font font = new Font("arial", Font.BOLD, 50);
+
+        flagsLabel = new JLabel("0");
+        flagsLabel.setSize(90,60);
+        flagsLabel.setFont(font);
+        flagsLabel.setForeground(Color.RED);
+        flagsLabel.setBackground(Color.BLACK);
+        flagsLabel.setOpaque(true);
+        topPanel.add(flagsLabel, BorderLayout.WEST);
+
+        JButton btn = new JButton();
+        btn.setBackground(Color.ORANGE);
+        btn.setSize(60, 60);
+        btn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                listener.onStartButtonPressed();
+            }
+        });
+        topPanel.add(btn, BorderLayout.CENTER);
+
+        timeLabel = new JLabel("0");
+        timeLabel.setSize(90,60);
+        timeLabel.setFont(font);
+        timeLabel.setForeground(Color.RED);
+        timeLabel.setBackground(Color.BLACK);
+        timeLabel.setOpaque(true);
+        topPanel.add(timeLabel, BorderLayout.EAST);
     }
 
     private void initPanel() {
@@ -63,6 +94,7 @@ public class View implements IView {
         frame.setLocationRelativeTo(null);
 
         frame.setLayout(new BorderLayout());
+        frame.add(topPanel, BorderLayout.NORTH);
         frame.add(mainPanel, BorderLayout.CENTER);
         frame.pack();
     }
@@ -90,6 +122,6 @@ public class View implements IView {
 
     @Override
     public void updateTimer(int time) {
-
+        timeLabel.setText(String.valueOf(time));
     }
 }

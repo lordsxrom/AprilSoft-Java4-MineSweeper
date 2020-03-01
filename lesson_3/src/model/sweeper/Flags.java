@@ -4,8 +4,6 @@ import model.enums.Box;
 import utils.Coord;
 import utils.Utils;
 
-import java.util.Map;
-
 public class Flags {
 
     private Matrix flagMap;
@@ -77,4 +75,5 @@ public class Flags {
     public Matrix getFlagMap() {
         return flagMap;
     }
+
 }

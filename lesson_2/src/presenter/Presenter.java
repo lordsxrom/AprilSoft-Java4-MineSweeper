@@ -36,7 +36,7 @@ public class Presenter implements IPresenter, ViewListener, ModelListener {
 
     @Override
     public void onStartButtonPressed() {
-
+        model.start();
     }
 
     @Override
@@ -56,6 +56,6 @@ public class Presenter implements IPresenter, ViewListener, ModelListener {
 
     @Override
     public void updateTimer(int timer) {
-
+        view.updateTimer(timer);
     }
 }

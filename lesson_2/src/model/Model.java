@@ -9,6 +9,8 @@ import utils.Utils;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.util.Map;
@@ -19,6 +21,14 @@ public class Model implements IModel {
 
     private Flags flags;
     private State state;
+
+    private int time;
+    private Timer timer = new Timer(1000, new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            listener.updateTimer(time++);
+        }
+    });
 
     public Model() {
         initImages();
@@ -37,9 +47,12 @@ public class Model implements IModel {
     public void start() {
         flags.initFlags();
         state = State.PLAY;
+        time = 0;
+        timer.start();
 
         listener.updateState(state);
         listener.updateRemainingBomb(flags.getCountFlags());
+        listener.updateTimer(time);
         listener.updateMap(draw());
     }
 
