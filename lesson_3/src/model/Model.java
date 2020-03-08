@@ -109,7 +109,7 @@ public class Model implements IModel {
     }
 
     private void checkWin() {
-        if (flags.getCountOpened() == Utils.BOMBS && isPlaying()) {
+        if (flags.getCountClosed() == Utils.BOMBS && isPlaying()) {
             state = State.WIN;
             timer.stop();
             listener.updateState(state);

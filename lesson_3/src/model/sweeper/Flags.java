@@ -8,12 +8,13 @@ public class Flags {
 
     private Matrix flagMap;
     private int countFlags;
-    private int countOpened;
+    private int countClosed;
 
     public void initFlags() {
         flagMap = new Matrix(Box.CLOSED);
-        countOpened = Utils.COLS * Utils.ROWS;
         countFlags = Utils.BOMBS;
+
+        countClosed = Utils.COLS * Utils.ROWS;
     }
 
     public Box getBox(Coord coord) {
@@ -21,7 +22,7 @@ public class Flags {
     }
 
     public void setOpenedToBox(Coord coord) {
-        countOpened--;
+        countClosed--;
         flagMap.setBox(coord, Box.OPENED);
     }
 
@@ -64,8 +65,8 @@ public class Flags {
         return count;
     }
 
-    public int getCountOpened() {
-        return countOpened;
+    public int getCountClosed() {
+        return countClosed;
     }
 
     public int getCountFlags() {
