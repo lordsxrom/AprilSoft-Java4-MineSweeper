@@ -28,6 +28,7 @@ public class Model implements IModel {
     private Timer timer = new Timer(1000, new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
+            //checkWin();
             listener.updateTimer(time++);
         }
     });
@@ -62,7 +63,7 @@ public class Model implements IModel {
 
     @Override
     public void onMousePressed(int x, int y, int type) {
-        if (isPlaying()) return;
+        if (!isPlaying()) return;
 
         Coord coord = new Coord(x, y);
 
@@ -142,7 +143,7 @@ public class Model implements IModel {
     }
 
     private boolean isPlaying() {
-        return state != State.PLAY;
+        return state == State.PLAY;
     }
 
     private void setOpenedToClosedBoxesAroundNumber(Coord coord) {
